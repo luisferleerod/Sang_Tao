@@ -16,8 +16,9 @@ if(isset($_POST["entrar"])){
         die();
     }
     else{
-        header("location: ../interfaz/index.html");
-        die();
+
+        echo '<script language="javascript">alert("Usuario o clave incorrectos");window.location.href="../interfaz/index.html"</script>';
+
     }
 }
 

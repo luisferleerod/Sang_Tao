@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Hojas de estilos-->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Fuentes de la aplocacion-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
 
     <title>Login - TIMELESS</title>
 
@@ -25,17 +30,18 @@
 
         <!-- USERNAME INPUT -->
         <label for="username">Usuario</label>
-        <input type="text" name="username" placeholder="  Ingrese su usuario">
+        <input type="text" name="username" placeholder="  Ingrese su usuario" required>
 
         <!-- PASSWORD INPUT -->
         <label for="password">Clave</label>
-        <input type="password" name="password" placeholder="  Ingrese su clave">
+        <input type="password" name="password" placeholder="  Ingrese su clave" required>
 
         <!-- BOTON SUBMIT -->
-        
         <input type="submit" value="Acceder" name="entrar">
         <div class="linea"></div>
-        <p align="center"><a href="registro.html">Registrarse</a></p>
+        <p align="center">
+          <a href="registro.html">Registrarse</a>
+        </p>
       
       </form>
     </div>

@@ -50,7 +50,7 @@ img {
 h1, h2, h3 {
   text-align: center;
   color: var(--blanco);
-  font-family: var(--fuentePrincipal);
+  font-family: var(--fuente-principal);
 }
 
 h1 {
@@ -69,7 +69,7 @@ h3 {
 
 .login-box {
   width: 38rem;
-  height: 45rem;
+  /*height: 45rem;*/
   background: var(--terciario);
   font-family: var(--fuente-principal);
   font-size: 1.8rem;
@@ -79,7 +79,7 @@ h3 {
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  padding: 80px 30px;
+  padding: 80px 30px 30px 30px;
   border-radius: 1rem;
 }
 
@@ -112,7 +112,6 @@ h3 {
 }
 
 
-
 .login-box input[type="text"], 
 .login-box input[type="password"],
 .login-box input[type="mail"] {
@@ -137,8 +136,8 @@ h3 {
 
 .login-box input[type="submit"]:hover {
   cursor: pointer;
-  background: #024a6b;
-  color: #000;
+  background: var(--cuaternario);
+  color: var(--blanco);
 }
 .linea {
   border-top: 1px solid white;
@@ -150,7 +149,7 @@ h3 {
 
 .login-box a {
   text-decoration: none;
-  font-family: var(--fuentePrincipal);
+  font-family: var(--fuente-principal);
   font-size: 2rem;
   line-height: 20px;
   color: var(--blanco);
@@ -168,21 +167,6 @@ h3 {
   left: calc(76% - 16rem);
 }
 
-.regiter-box {
-  width: 22rem;
-  height: 40rem;
-  background: var(--terciario);
-  color: var(--blanco);
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  padding: 80px 30px;
-  border-radius: 1rem;
-}
-
-
 
 /* ------------ Pantalla Principal --------------*/
 
@@ -197,8 +181,8 @@ h3 {
 }
 
 .header__logo {
+  height: 9rem;
   margin: 0rem 0rem;
-  height: 12rem;
 }
 
 .navegacion {
@@ -224,9 +208,32 @@ h3 {
 }
 
 .calendario{
-
-  background-color: var(--primario);
+  background-color: var(--blanco);
+  font-family: var(--fuente-principal);
+  font-size: 14px;
+  max-width: 150rem;
+  max-height: 70rem;
+  margin: 2rem auto;
 }
+
+.fc .fc-toolbar-title {
+  font-size: 1.75em;
+  margin: 0;
+  color: var(--negro);
+  text-transform: capitalize;
+}
+
+.fc .fc-toolbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primario);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+
+/* ------------ Actividad por entrega --------------*/
 
 .Actividadxentrega {
   width: 50px;

@@ -56,8 +56,4 @@ if(isset($_POST["crear"])){
 
 
 
-
-
-
-
 ?>

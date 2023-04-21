@@ -26,7 +26,7 @@
 
           <form method="post" action="../conexion/Crearxentrega.inc.php"> 
             <label for="Titulo">Titulo</label>
-            <input type="text" name="titulo" user="Digite el nombre de la actividad" required>
+            <input type="text" name="titulo" required user="Digite el nombre de la actividad">
 
             <label for="Descripcion">Descripcion</label>
             <input type="text" name="descripcion" user="Digite la Descripcion de la actividad">
@@ -39,7 +39,7 @@
             <label for="fechai">Fecha de inicio:</label>
             <input type="datetime-local" id="fechai" name="fechai" required>
             <label for="fechaf">Fecha de fin:</label>
-            <input type="datetime-local" id="fechaf" name="fechaf">
+            <input type="datetime-local" id="fechaf" name="fechaf" required>
             
 
             <!-- BOTON SUBMIT -->
@@ -48,6 +48,21 @@
           </form>
 
     </div>
+
+    <script>
+        const fechaInicioInput = document.getElementById('fechai');
+        const fechaFinInput = document.getElementById('fechaf');
+
+        fechaFinInput.addEventListener('input', () => {
+            const fechaInicio = new Date(fechaInicioInput.value);
+            const fechaFin = new Date(fechaFinInput.value);
+
+            if (fechaFin <= fechaInicio) {
+                alert('La fecha de finalización debe ser posterior a la fecha de inicio.');
+                fechaFinInput.value = '';
+            }
+        });
+    </script>
 
   </body>
 </html>
