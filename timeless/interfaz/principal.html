@@ -18,7 +18,11 @@
 
           
           headerToolbar: {
+
+            left: 'prev,next today actividad evento modificarA',
+
             left: 'prev,next today actividad evento',
+
             center: 'title',
             right: 'month week day list'
           },
@@ -39,6 +43,14 @@
                 // Redirige al usuario a la página nueva_actividad.html
                 window.location.href = 'EventoFijo.html';
               }
+
+            },
+            modificarA:{
+              text: 'Modificar Actividad',
+              click: function(){
+                window.location.href = 'ModAct.html';
+              }
+
             }
           },
 
@@ -85,6 +97,21 @@
             console.log(info.event.extendedProps.descripcion);
           },
 
+
+          events: {
+          url: 'get_events.php',
+          method: 'GET',
+          failure: function() {
+          alert('There was an error while fetching events!');
+          },
+          color: 'yellow',   // a non-ajax option
+          textColor: 'black' // a non-ajax option
+      }
+    });
+    calendar.setOption('locale', 'Es');
+    calendar.render();
+  });
+
           events:[
             {
               title:"MI evento 1",
@@ -105,6 +132,7 @@
         calendar.setOption('locale', 'Es');
         calendar.render();
       });
+
     </script>
 
     <link rel="stylesheet" href="css/normalize.css">
@@ -114,6 +142,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">    
 
   <title>TIME-LESS</title>
+
 </head>
 
 <body class="pantalla_principal">

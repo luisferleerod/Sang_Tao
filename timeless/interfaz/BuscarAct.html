@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Hojas de estilos-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Fuentes de la aplocacion-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+
+    <title>Login - TIMELESS</title>
+
+  </head>
+  <body>
+
+    <div class="login-box">
+        <a href="principal.html" class="flecha_volver" alt="volver">
+            <img src="img/flecha_volver.png" class="flecha_volver" alt="Atras">
+          </a>
+          
+      <img src="img/Logo.jpg" class="avatar" alt="Logo Timeless">
+      <h1>Buscar Actividad</h1>
+
+      <form method="post" action="../conexion/InicioSesion.inc.php">
+
+        <!-- USERNAME INPUT -->
+        <label for="Actividad">Actividad</label>
+        <input type="text" name="username" placeholder="  Ingrese el titulo de la actividad" required>
+
+        
+        <!-- BOTON SUBMIT -->
+        <input type="submit" value="Buscar" name="Buscar">
+        <div class="linea"></div>
+       
+      
+      </form>
+    </div>
+  </body>
+</html>

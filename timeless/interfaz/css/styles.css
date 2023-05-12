@@ -266,6 +266,30 @@ h3 {
   padding: 80px 30px;
   border-radius: 1rem;
 }
+
+
+.MActividad-box {
+  width: 42rem;
+  height:62rem;
+  background: var(--terciario);
+  color: var(--blanco);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 0px 30px;
+  border-radius: 1rem;
+}
+.MActividad-box .flecha_volver {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: .5rem;
+  left: calc(76% - 17rem);
+}
+
+
 .Actividad-box .flecha_volver {
   width: 50px;
   height: 50px;
@@ -282,6 +306,17 @@ h3 {
   top: -50px;
   left: calc(50% - 50px);
 }
+
+
+.MActividad-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
 
 .Actividad-box h1 {
   margin: 0;
@@ -306,6 +341,39 @@ h3 {
 .Actividad-box input[type="number"],
 .Actividad-box input[type="mail"],
 .Actividad-box input[type="datetime-local"] {
+  border: none;
+  background: var(--blanco);
+  border-radius: .3rem;
+  outline: none;
+  height: 40px;
+  color: var(--negro);
+  font-size: 16px;
+
+}
+
+.MActividad-box h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.MActividad-box label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+}
+
+.MActividad-box input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.MActividad-box input[type="text"], 
+.MActividad-box input[type="number"],
+.MActividad-box input[type="mail"],
+.MActividad-box input[type="datetime-local"] {
   border: none;
   background: var(--blanco);
   border-radius: .3rem;

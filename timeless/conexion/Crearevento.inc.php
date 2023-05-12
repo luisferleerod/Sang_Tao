@@ -19,6 +19,7 @@ $hora_unixf=strtotime($horaf);
 $horafmysql=date('H:i:s', $hora_unixf);
 
 
+
 if(isset($_POST["crear"])){
 
     if($dia=='lunes'){
