@@ -18,7 +18,11 @@
 
           
           headerToolbar: {
+
             left: 'prev,next today actividad evento modificarA',
+
+            left: 'prev,next today actividad evento',
+
             center: 'title',
             right: 'month week day list'
           },
@@ -39,12 +43,14 @@
                 // Redirige al usuario a la página nueva_actividad.html
                 window.location.href = 'EventoFijo.html';
               }
+
             },
             modificarA:{
               text: 'Modificar Actividad',
               click: function(){
                 window.location.href = 'ModAct.html';
               }
+
             }
           },
 
@@ -91,6 +97,7 @@
             console.log(info.event.extendedProps.descripcion);
           },
 
+
           events: {
           url: 'get_events.php',
           method: 'GET',
@@ -104,6 +111,28 @@
     calendar.setOption('locale', 'Es');
     calendar.render();
   });
+
+          events:[
+            {
+              title:"MI evento 1",
+              start:"2023-04-13 12:30:00",
+              end: "2023-04-14 15:30:00",
+              descripcion:"Descripcion del evento 1"
+            }, 
+            {
+              title:"MI evento 2",
+              start:"2023-04-14 12:30:00",
+              end: "2023-04-15 15:30:00",
+              descripcion:"Descripcion del evento 2"
+            }
+          ]
+      
+        });
+    
+        calendar.setOption('locale', 'Es');
+        calendar.render();
+      });
+
     </script>
 
     <link rel="stylesheet" href="css/normalize.css">
@@ -113,7 +142,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">    
 
   <title>TIME-LESS</title>
-  
+
 </head>
 
 <body class="pantalla_principal">
