@@ -20,6 +20,7 @@ $sql = "UPDATE actividad SET id_urgencia =
         END
         WHERE usuario = '$username'";
 
-$resultado = $conn->query($sql);
+
+mysqli_query($con,$sql);
 }
 ?>
