@@ -267,7 +267,6 @@ h3 {
   border-radius: 1rem;
 }
 
-
 .MActividad-box {
   width: 42rem;
   height:62rem;
@@ -289,7 +288,6 @@ h3 {
   left: calc(76% - 17rem);
 }
 
-
 .Actividad-box .flecha_volver {
   width: 50px;
   height: 50px;
@@ -307,7 +305,6 @@ h3 {
   left: calc(50% - 50px);
 }
 
-
 .MActividad-box .avatar {
   width: 100px;
   height: 100px;
@@ -316,7 +313,6 @@ h3 {
   top: -50px;
   left: calc(50% - 50px);
 }
-
 
 .Actividad-box h1 {
   margin: 0;
@@ -348,7 +344,6 @@ h3 {
   height: 40px;
   color: var(--negro);
   font-size: 16px;
-
 }
 
 .MActividad-box h1 {

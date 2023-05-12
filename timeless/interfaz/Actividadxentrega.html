@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,3 +67,73 @@
 
   </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+
+    <title>ACTIVIDAD_X_ENTREGA</title>
+</head>
+<body>
+
+    <div class="Actividad-box">
+        <a href="principal.html" class="flecha_volver" alt="volver">
+            <img src="img/flecha_volver.png" class="flecha_volver" alt="Atras">
+          </a>
+
+          <img src="img/Logo.jpg" class="avatar" alt="Logo Timeless">
+          <h1>ACTIVIDAD POR ENTREGA</h1>
+
+          <form method="post" action="../conexion/Crearxentrega.inc.php"> 
+            <label for="Titulo">Titulo</label>
+            <input type="text" name="titulo" required user="Digite el nombre de la actividad">
+
+            <label for="Descripcion">Descripcion</label>
+            <input type="text" name="descripcion" user="Digite la Descripcion de la actividad">
+
+            <label for="importancia">Importancia:</label>
+            <select id="importancia" name="importancia" required>
+            <option value="importante">Importante</option>
+            <option value="no_importante">No Importante</option>
+            </select>
+            <label for="fechai">Fecha de inicio:</label>
+            <input type="datetime-local" id="fechai" name="fechai" required>
+            <label for="fechaf">Fecha de fin:</label>
+            <input type="datetime-local" id="fechaf" name="fechaf" required>
+            
+
+            <!-- BOTON SUBMIT -->
+            <input type="submit" value="Crear" name="crear">
+
+          </form>
+
+    </div>
+
+    <script>
+        const fechaInicioInput = document.getElementById('fechai');
+        const fechaFinInput = document.getElementById('fechaf');
+
+        fechaFinInput.addEventListener('input', () => {
+            const fechaInicio = new Date(fechaInicioInput.value);
+            const fechaFin = new Date(fechaFinInput.value);
+
+            if (fechaFin <= fechaInicio) {
+                alert('La fecha de finalización debe ser posterior a la fecha de inicio.');
+                fechaFinInput.value = '';
+            }
+        });
+    </script>
+
+  </body>
+</html>
+
