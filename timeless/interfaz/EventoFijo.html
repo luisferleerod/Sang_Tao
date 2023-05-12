@@ -16,6 +16,69 @@
 <body>
 
     <div class="Actividad-box">
+        <a href="principal.php" class="flecha_volver" alt="volver">
+            <img src="img/flecha_volver.png" class="flecha_volver" alt="Atras">
+        </a>
+
+        <img src="img/Logo.jpg" class="avatar" alt="Logo Timeless">
+        <h1>EVENTO FIJO</h1>
+
+        <form method="post" action="../conexion/Crearevento.inc.php"> 
+          <label for="Titulo">Titulo</label>
+          <input type="text" name="titulo" required user="Digite el nombre del evento">
+
+          <label for="Descripcion">Descripcion</label>
+          <input type="text" name="descripcion" user="Digite la Descripcion del evento">
+
+          <label for="Dia">Día:</label>
+          <select id="importancia" name="dia">
+            <option value="lunes">Lunes</option>
+            <option value="martes">Martes</option>
+            <option value="miercoles">Miercoles</option>
+            <option value="jueves">Jueves</option>
+            <option value="viernes">Viernes</option>
+            <option value="sabado">Sabado</option>
+            <option value="domingo">Domingo</option>
+          </select>
+            
+          <label for="horai">hora de inicio:</label>
+          <input type="time" id="fecha" required name="horai">
+          <label for="horaf">hora de fin:</label>
+          <input type="time" id="fecha" required name="horaf">
+
+            <!-- BOTON SUBMIT -->
+            <input type="submit" value="Crear" name="crear">
+
+          </form>
+
+
+
+
+
+    </div>
+
+
+
+  </body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <title>EVENTO FIJO</title>
+</head>
+<body>
+
+    <div class="Actividad-box">
         <a href="principal.html" class="flecha_volver" alt="volver">
             <img src="img/flecha_volver.png" class="flecha_volver" alt="Atras">
         </a>
@@ -60,4 +123,5 @@
 
 
   </body>
+
 </html>
