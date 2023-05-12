@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Registrar cuenta - TIMELESS</title>
+  </head>
+  <body>
+
+    
+    <div class="login-box">
+      <a href="index.html" class="flecha_volver" alt="volver">
+      <img src="img/flecha_volver.png" class="flecha_volver" alt="Atras">
+      </a>
+  
+        <img src="img/Logo.jpg" class="avatar" alt="Logo Timeless">
+        <h1>Registro</h1>
+
+        <form method="post" action="../conexion/Registro.inc.php">
+
+          <!-- USERNAME INPUT -->
+          <label for="username">Usuario</label>
+          <input type="text" name= "username" placeholder="Ingrese su usuario" required>
+
+          <!-- PASSWORD INPUT -->
+          <label for="password">Contraseña</label>
+          <input type="password" name= "password" placeholder="Ingrese su clave" required>
+          
+
+          <!-- MAIL INPUT -->
+          <label for="correo">Correo</label>
+          <input type="text" name= "correo" placeholder="Ingrese su correo" required>
+
+          <!-- Hora inicio INPUT -->
+          <label for="hora_inicio">Hora de iniciar el dia</label>
+          <input type="time" name= "hora_inicio" placeholder="Hora de inicio" required>
+
+          <!-- Hora fin INPUT -->
+          <label for="hora_fin">Hora de finalizar el dia</label>
+          <input type="time" name= "hora_fin" placeholder="Hora de finalizar el dia" required>
+
+          <input type="submit" value="Confirmar" name="registro">
+        
+      </form>
+    </div>
+  </body>
+</html>
