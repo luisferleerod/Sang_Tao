@@ -1,1 +1,0 @@
-sudo sshfs -o allow_other root@192.168.77.45:/var/www/html/timeless /home/lflee/mnt/timeless
