@@ -33,7 +33,7 @@ try {
 
           
           headerToolbar: {
-            left: 'prev,next today actividad evento',
+            left: 'prev,next today actividad evento hola',
             center: 'title',
             right: 'month week day list'
           },
