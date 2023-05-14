@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__.'/../conexion/dbh.inc.php';
-
 use PHPUnit\Framework\TestCase;
 
 class InicioSesionTest extends TestCase {
