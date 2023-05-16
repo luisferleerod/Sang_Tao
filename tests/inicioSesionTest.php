@@ -5,17 +5,17 @@ use PHPUnit\Framework\TestCase;
 class InicioSesionTest extends TestCase {
     // Métodos de prueba aquí
     public function testAssertEquals() {
-        $mensaje = "Hola Mundo";
+        $mensaje = "Hola Mundo1";
         $this->assertEquals("Hola Mundo", $mensaje);
     }
 
     public function testAssertTrue() {
-        $esVerdadero = true;
+        $esVerdadero = false;
         $this->assertTrue($esVerdadero);
     }
 
     public function testAssertFalse() {
-        $esFalso = false;
+        $esFalso = true;
         $this->assertFalse($esFalso);
     }
 }
