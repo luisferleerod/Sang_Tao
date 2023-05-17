@@ -33,7 +33,7 @@ try {
 
           
           headerToolbar: {
-            left: 'prev,next today actividad evento',
+            left: 'prev,next today actividad evento modificarEvento',
             center: 'title',
             right: 'month week day list'
           },
@@ -55,7 +55,17 @@ try {
                 window.location.href = 'EventoFijo.html';
               }
             },
+
+            modificarEvento: {
+              text: 'Modificar Evento',
+              click: function () {
+                window.location.href = 'ModEvento.html';
+              }
+            }, 
+
           },
+
+           
 
           initialView: 'dayGridMonth',
           views: {
