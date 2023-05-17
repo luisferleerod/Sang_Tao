@@ -24,7 +24,7 @@ class InicioSesionTest extends TestCase {
     }
 
     public function testInvalidLogin() {
-        $username = 'jjosegomez1';
+        $username = 'jjosegomez';
         $password = '123456';
 
         $query = "SELECT * FROM usuario WHERE usuario = '$username' AND clave = '$password'";
