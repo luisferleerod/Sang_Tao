@@ -9,6 +9,16 @@ class InicioSesionTest extends TestCase {
     private $username;
     private $password;
 
+    protected function setUp(): void {
+        $this->db = new mysqli("192.168.77.45", "jjosegomez", "luchopelucho", "casti");
+        if ($this->db->connect_error) {
+            die("Error de conexión a la base de datos: " . $this->db->connect_error);
+        }
+
+        $this->username = 'jjosegomez';
+        $this->password = '12345';
+    }
+
     public function testValidLogin() {
         $_POST["username"] = $this->username;
         $_POST["password"] = $this->password;
