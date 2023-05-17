@@ -1,42 +1,37 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-include ("../conexion/dbh.inc.php");
 
+include("../conexion/dbh.inc.php");
 
 class InicioSesionTest extends TestCase {
     private $db;
-    $username = 'jjosegomez';
-    $password = '12345';
+    private $username;
+    private $password;
 
     protected function setUp(): void {
         $this->db = new mysqli("192.168.77.45", "jjosegomez", "luchopelucho", "casti");
         if ($this->db->connect_error) {
             die("Error de conexión a la base de datos: " . $this->db->connect_error);
         }
+
+        $this->username = 'jjosegomez';
+        $this->password = '12345';
     }
 
     public function testValidLogin() {
-        $esVerdadero;
-        
-        if(isset($_POST["entrar"])){
-            
-            $query = mysqli_query($con,"SELECT * FROM usuario WHERE usuario = '$username' AND clave = '$password'");
-            $nr = mysqli_num_rows($query);
+        $_POST["username"] = $this->username;
+        $_POST["password"] = $this->password;
 
-            if($nr==1){
-                $esVerdadero = true;
-                $this->assertTrue($esVerdadero);
-                
-                die();
-                
-            } else {
-                $esVerdadero = false;
-                $this->assertTrue($esVerdadero);
-            }
-        }
+        $query = "SELECT * FROM usuario WHERE usuario = '$this->username' AND clave = '$this->password'";
+        $result = $this->db->query($query);
+        $nr = $result->num_rows;
 
+        $this->assertEquals(1, $nr, 'Se esperaba un inicio de sesión válido');
     }
 
+    protected function tearDown(): void {
+        $this->db->close();
+    }
 }
 ?>
