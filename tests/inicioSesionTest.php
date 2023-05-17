@@ -16,7 +16,7 @@ class InicioSesionTest extends TestCase {
         }
 
         $this->username = 'jjosegomez';
-        $this->password = '12345';
+        $this->password = '123456';
     }
 
     public function testValidLogin() {
