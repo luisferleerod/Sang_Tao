@@ -10,20 +10,30 @@ class LoginTest extends TestCase
         $username = "jjosegomez";
         $password = "luchopelucho";
         
-        // Realizar la solicitud POST al archivo de inicio de sesión
-        $postData = [
-            'username' => $username,
-            'password' => $password,
-            'entrar' => true
-        ];
+        // Crear una instancia de la clase PDO para la conexión a la base de datos
+        $dbhost = "192.168.77.45";
+        $dbuser = "jjosegomez";
+        $dbpass = "luchopelucho";
+        $dbname = "casti";
         
-        $response = $this->postRequest('ruta_al_archivo/inicioSesion.php', $postData);
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+        
+        // Preparar la consulta SQL para buscar el usuario
+        $stmt = $dbh->prepare("SELECT * FROM usuario WHERE usuario = :username AND clave = :password");
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        
+        // Ejecutar la consulta
+        $stmt->execute();
+        
+        // Verificar que se encontró un usuario válido
+        $this->assertEquals(1, $stmt->rowCount(), 'No se encontró un usuario válido');
         
         // Verificar que se redireccionó a la página principal
-        $this->assertEquals('Location: ../interfaz/principal.php', $response['headers'][0]);
+        $this->assertStringContainsString('Location: ../interfaz/principal.php', implode(' ', $stmt->errorInfo()));
         
         // Verificar que la sesión se inició correctamente
-        $this->assertTrue(session_id() !== '', 'La sesión no se inició correctamente');
+        $this->assertNotEmpty(session_id(), 'La sesión no se inició correctamente');
         $this->assertEquals($username, $_SESSION['username'], 'El nombre de usuario en la sesión no coincide');
     }
     
@@ -33,39 +43,31 @@ class LoginTest extends TestCase
         $username = "usuario_invalido";
         $password = "clave_invalida";
         
-        // Realizar la solicitud POST al archivo de inicio de sesión
-        $postData = [
-            'username' => $username,
-            'password' => $password,
-            'entrar' => true
-        ];
+        // Crear una instancia de la clase PDO para la conexión a la base de datos
+        $dbhost = "192.168.77.45";
+        $dbuser = "jjosegomez";
+        $dbpass = "luchopelucho";
+        $dbname = "casti";
         
-        $response = $this->postRequest('ruta_al_archivo/inicioSesion.php', $postData);
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+        
+        // Preparar la consulta SQL para buscar el usuario
+        $stmt = $dbh->prepare("SELECT * FROM usuario WHERE usuario = :username AND clave = :password");
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        
+        // Ejecutar la consulta
+        $stmt->execute();
+        
+        // Verificar que no se encontró un usuario válido
+        $this->assertEquals(0, $stmt->rowCount(), 'Se encontró un usuario válido en un inicio de sesión inválido');
         
         // Verificar que se mostró un mensaje de error y se redireccionó al formulario de inicio de sesión
-        $this->assertStringContainsString('Usuario o clave incorrectos', $response['content']);
-        $this->assertEquals('Location: ../interfaz/index.html', $response['headers'][0]);
+        $this->assertStringContainsString('Usuario o clave incorrectos', implode(' ', $stmt->errorInfo()));
+        $this->assertStringContainsString('Location: ../interfaz/index.html', implode(' ', $stmt->errorInfo()));
         
         // Verificar que la sesión no se inició
-        $this->assertTrue(session_id() === '', 'Se inició una sesión en un inicio de sesión inválido');
-        $this->assertArrayNotHasKey('username', $_SESSION, 'Se guardó un nombre de usuario en la sesión');
-    }
-    
-    // Función auxiliar para realizar una solicitud POST y obtener la respuesta
-    private function postRequest($url, $data)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        $headers = curl_getinfo($ch);
-        curl_close($ch);
-        
-        return [
-            'headers' => $headers,
-            'content' => $response
-        ];
-    }
-}
+        $this->assertEmpty(session_id(), 'Se inició una sesión en un inicio de sesión inválido');
+        $this
+
 
