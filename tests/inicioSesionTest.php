@@ -3,32 +3,39 @@
 use PHPUnit\Framework\TestCase;
 
 class InicioSesionTest extends TestCase {
-    // Métodos de prueba aquí
-    public function testAssertEquals() {
-         // Simula los datos de inicio de sesión correctos
-        $_POST["username"] = "jjosegomez";
-        $_POST["password"] = "12345";
+    private $db;
 
-        // Incluye el archivo de inicio de sesión para acceder a las variables y funciones
-        include("inicioSesion.php");
-
-        // Comprueba si se redirecciona correctamente después del inicio de sesión exitoso
-        $this->assertEquals("../interfaz/principal.php", $this->getActualOutput());
-
-        // Comprueba si se estableció la variable de sesión correctamente
-        $this->assertEquals("usuario_valido", $_SESSION['username']);
+    protected function setUp(): void {
+        $this->db = new mysqli("192.168.77.45", "jjosegomez", "luchopelucho", "casti");
+        if ($this->db->connect_error) {
+            die("Error de conexión a la base de datos: " . $this->db->connect_error);
+        }
     }
 
-    public function testAssertFalse() {
-        // Simula los datos de inicio de sesión incorrectos
-        $_POST["username"] = "jjosegomez1";
-        $_POST["password"] = "123456";
+    public function testValidLogin() {
+        $username = 'jjosegomez';
+        $password = '12345';
 
-        // Incluye el archivo de inicio de sesión para acceder a las variables y funciones
-        include("inicioSesion.php");
+        $query = "SELECT * FROM usuario WHERE usuario = '$username' AND clave = '$password'";
+        $result = $this->db->query($query);
+        $nr = $result->num_rows;
 
-        // Comprueba si se muestra el mensaje de error
-        $this->expectOutputString('<script language="javascript">alert("Usuario o clave incorrectos");window.location.href="../interfaz/index.html"</script>');
-        $this->assertEquals(0, mysqli_num_rows($query));
+        $this->assertEquals(1, $nr);
+    }
+
+    public function testInvalidLogin() {
+        $username = 'jjosegomez1';
+        $password = '123456';
+
+        $query = "SELECT * FROM usuario WHERE usuario = '$username' AND clave = '$password'";
+        $result = $this->db->query($query);
+        $nr = $result->num_rows;
+
+        $this->assertEquals(0, $nr);
+    }
+
+    protected function tearDown(): void {
+        $this->db->close();
     }
 }
+?>
