@@ -1,3 +1,5 @@
+<?php
+
 use PHPUnit\Framework\TestCase;
 
 include("../conexion/dbh.inc.php");
@@ -28,4 +30,8 @@ class InicioSesionTest extends TestCase {
         $this->assertEquals(1, $nr, 'Se esperaba un inicio de sesión válido');
     }
 
+    protected function tearDown(): void {
+        $this->db->close();
+    }
 }
+?>
